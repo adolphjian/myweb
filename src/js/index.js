@@ -1,4 +1,17 @@
 $(function(){
+  // 处理列表内容
+  // 加载列表数据
+  function loadListData(){
+    return axios.get('home/goodslist');
+  }
+  // 渲染列表
+  function renderList(param){
+    return new Promise(function(resolve,reject){
+      let html = template('listTpl', param.data);
+      $('#listInfo').html(html);
+      resolve();
+    })
+  }
 
   // 处理菜单
   // 加载菜单数据
@@ -55,6 +68,12 @@ $(function(){
     // 处理菜单
     loadMenuData()
       .then(renderMenu)
+      .catch(function(){
+        $.toast('服务器错误');
+      });
+    // 处理列表
+    loadListData()
+      .then(renderList)
       .catch(function(){
         $.toast('服务器错误');
       });

@@ -39,7 +39,6 @@ $(function() {
         reject(data.meta.msg);
       }
     })
-    return 123;
   }
   $('#loginBtn').on('click', function() {
     // 获取页面表单数据
