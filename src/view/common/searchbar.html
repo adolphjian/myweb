@@ -9,19 +9,22 @@
 </div>
 <script type="text/template" id="searchTpl">
   <div class="content">
-    <div class="list-block">
-      <ul>
-        {{each $data}}
-        <li class="item-content item-link">
-          <a href="/goods_detail.html?goods_id={{$value.goods_id}}">
-            <div class="item-media"><i class="icon icon-f7"></i></div>
-            <div class="item-inner">
-              <div class="item-title">{{$value.goods_name}}</div>
-            </div>
-          </a>
-        </li>
-        {{/each}}
-      </ul>
+    <div class="list-block contacts-block">
+      <div class="list-group">
+        <ul>
+          {{each $data}}
+            <li>
+              <a href="/goods-detail.html?goods_id={{$value.goods_id}}" class="item-link item-content">
+                <div class="item-inner">
+                  <div class="item-title">
+                    {{$value.goods_name}}
+                  </div>
+                </div>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
   </div>
 </script>

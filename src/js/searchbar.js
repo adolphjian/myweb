@@ -31,9 +31,13 @@ $(function(){
     layer.show();
   })
   $('#search').on('blur',function(){
-    layer.hide();
+    // 保证点击a标签之后再触发隐藏操作
+    setTimeout(function(){
+      layer.hide();
+    },0);
   })
   $('#search').on('input',function(){
+    // 输入关键字的时候，动态调用后台接口，从而获取该关键字所有对应的数据列表
     let kw = $('#search').val();
     loadKeyWordData(kw).then(renderList);
   })
