@@ -2,29 +2,21 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>主页</title>
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="stylesheet" type="text/css" href="assets/sui/css/sm.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/swiper/css/swiper.min.css">
+  @@include('./common/meta.html')
+  @@include('./common/style.html')
   <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 <body>
   <div class="page-group">
     <div class="page page-current">
-      <div class="bar bar-header-secondary mysearch">
-        <div class="searchbar">
-          <a class="searchbar-cancel">取消</a>
-          <div class="search-input">
-            <label class="icon icon-search" for="search"></label>
-            <input type="search" id='search' placeholder='输入关键字...' />
-          </div>
-        </div>
-      </div>
+      <!-- 搜索条 -->
+      @@include('./common/searchbar.html')
+      <!-- 菜单栏 -->
+      @@include('./common/menubar.html', {
+        "current": "active"
+      })
       <div class="content" id="content">
         <div class="swiper-container" id="swiperInfo"></div>
         <div class="content-padded menu" id="menuInfo"></div>
@@ -89,12 +81,7 @@
       </div>
     {{/each}}
   </script>
-  <script type="text/javascript" src="assets/axios/axios.min.js"></script>
-  <script type="text/javascript" src="assets/zepto/zepto.min.js"></script>
-  <script type="text/javascript" src="assets/sui/js/sm.min.js"></script>
-  <script type="text/javascript" src="assets/swiper/js/swiper.min.js"></script>
-  <script type="text/javascript" src="assets/artTemplate/template-web.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
+  @@include('./common/script.html')
   <script type="text/javascript" src="js/index.js"></script>
 </body>
 
