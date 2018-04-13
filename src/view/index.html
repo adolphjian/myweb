@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="assets/swiper/css/swiper.min.css">
   <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
+
 <body>
   <div class="page-group">
     <div class="page page-current">
@@ -19,34 +21,327 @@
           <a class="searchbar-cancel">取消</a>
           <div class="search-input">
             <label class="icon icon-search" for="search"></label>
-            <input type="search" id='search' placeholder='输入关键字...'/>
+            <input type="search" id='search' placeholder='输入关键字...' />
           </div>
         </div>
       </div>
       <div class="content" id="content">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="https://image3.suning.cn/uimg/cms/img/151738383270780554.jpg?from=mobile">
-              </div>
-              <div class="swiper-slide">
-                <img src="https://image4.suning.cn/uimg/cms/img/151937554134486711.jpg?from=mobile">
-              </div>
-              <div class="swiper-slide">
-                <img src="https://image2.suning.cn/uimg/aps/material/151939080657956233.jpg|/uimg/aps/material/151936970303149620.jpg">
-              </div>
+        <div class="swiper-container" id="swiperInfo"></div>
+        <div class="content-padded menu" id="menuInfo">
+          <!-- 菜单模板 -->
+          <div class="row">
+            <div class="col-20">
+              <a href="/category/category.html">
+                <div>
+                  <img src="https://image4.suning.cn/uimg/cms/img/151850586119571218.png">
+                </div>
+                <div>分类</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=母婴">
+                <div>
+                  <img src="https://image2.suning.cn/uimg/cms/img/151848438291975781.png?from=mobile">
+                </div>
+                <div>红孩子母婴</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=家电">
+                <div>
+                  <img src="http://image1.suning.cn/uimg/cms/img/151848528905743417.png?from=mobile">
+                </div>
+                <div>生活家电</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=服装">
+                <div>
+                  <img src="https://image5.suning.cn/uimg/cms/img/151848454201144206.png?from=mobile">
+                </div>
+                <div>时尚服饰</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=手机">
+                <div>
+                  <img src="https://image5.suning.cn/uimg/cms/img/151848471513191634.png?from=mobile">
+                </div>
+                <div>爆款手机</div>
+              </a>
+            </div>
           </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
+          <div class="row">
+            <div class="col-20">
+              <a href="/me/me.html">
+                <div>
+                  <img src="https://image4.suning.cn/uimg/cms/img/151848501127168581.png?from=mobile">
+                </div>
+                <div>会员</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=母婴">
+                <div>
+                  <img src="https://image2.suning.cn/uimg/cms/img/151848438291975781.png?from=mobile">
+                </div>
+                <div>红孩子母婴</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=家电">
+                <div>
+                  <img src="http://image1.suning.cn/uimg/cms/img/151848528905743417.png?from=mobile">
+                </div>
+                <div>生活家电</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=服装">
+                <div>
+                  <img src="https://image5.suning.cn/uimg/cms/img/151848454201144206.png?from=mobile">
+                </div>
+                <div>时尚服饰</div>
+              </a>
+            </div>
+            <div class="col-20">
+              <a href="/good_list/good_list.html?query=手机">
+                <div>
+                  <img src="https://image5.suning.cn/uimg/cms/img/151848471513191634.png?from=mobile">
+                </div>
+                <div>爆款手机</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="listInfo">
+          <!-- 内容列表模板 -->
+          <div class="content-padded list-title">
+            <img src="http://image4.suning.cn/uimg/cms/img/149559219946350066.png">
+          </div>
+          <div class="content-padded list-item">
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image3.suning.cn/uimg/mcmp/tm/0010130570000000000623444503_2_400x400.jpg">
+                </div>
+                <div class="name">梦·梵雅18K金30分钻石戒指-闪耀</div>
+                <div class="price">
+                  <span>¥ 0</span>
+                  <a href="/goods-list.html?cid=18443" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070149651-000000000611328848_2_400x400.jpg">
+                </div>
+                <div class="name">蒂芙尼:Tiffany Return to Tiffany珠式心牌蓝色珐琅手链（链长可选） 27630146、</div>
+                <div class="price">
+                  <span>¥ 0</span>
+                  <a href="/goods-list.html?cid=18856" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070141413-000000000622082544_1_400x400.jpg">
+                </div>
+                <div class="name">小米（MI）小米电视4 L65M5-AB 65英寸 3GB+32GB 4.9mm超薄 全景声影院 4K超高清智能平板电视</div>
+                <div class="price">
+                  <span>¥ 0</span>
+                  <a href="/goods-list.html?cid=17922" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070176762-000000000831384265_1_400x400.jpg">
+                </div>
+                <div class="name">国信恒丰 新中国邮票 一轮生肖邮票方连邮票 生肖方联 一轮生肖邮票 四方联 兔四方联</div>
+                <div class="price">
+                  <span>¥ 55</span>
+                  <a href="/goods-list.html?cid=19185" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            </div>
+          </div>
+          <div class="content-padded list-title">
+            <img src="http://image1.suning.cn/uimg/cms/img/149559224478616126.png">
+          </div>
+          <div class="content-padded list-item">
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0070060775-000000000133577085_2_400x400.jpg">
+                </div>
+                <div class="name">佐卡伊白18K金结婚钻石戒指情侣对戒男钻戒女戒婚戒 邂逅系列 情侣对戒</div>
+                <div class="price">
+                  <span>¥ 2899</span>
+                  <a href="/goods-list.html?cid=19976" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image1.suning.cn/uimg/b2c/newcatentries/0070081934-000000000138906243_1_400x400.jpg">
+                </div>
+                <div class="name">捣蛋鬼玩具旗舰店S901适用电池</div>
+                <div class="price">
+                  <span>¥ 20</span>
+                  <a href="/goods-list.html?cid=18130" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image4.suning.cn/uimg/b2c/newcatentries/0070135821-000000000152722847_2_400x400.jpg">
+                </div>
+                <div class="name">婴儿新生儿礼盒母婴用品秋冬加厚款纯棉0-6月初生衣服满月送礼套装加厚幸运鸟</div>
+                <div class="price">
+                  <span>¥ 98</span>
+                  <a href="/goods-list.html?cid=16488" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070154567-000000000605720910_2_400x400.jpg">
+                </div>
+                <div class="name">萌穗婴儿尿布裤夏2017年春季上新款宝宝尿布兜隔尿裤子可洗学习训练布尿裤新生儿尿片套网眼固定尿布尿片</div>
+                <div class="price">
+                  <span>¥ 13</span>
+                  <a href="/goods-list.html?cid=17462" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            </div>
+          </div>
+          <div class="content-padded list-title">
+            <img src="http://image4.suning.cn/uimg/cms/img/149561081033317441.png">
+          </div>
+          <div class="content-padded list-item">
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0070134707-000000000794014736_1_400x400.jpg">
+                </div>
+                <div class="name">七波辉男童鞋 秋冬季儿童加厚保暖大棉鞋 男中童大棉鞋B690014 黑色 36码/23cm</div>
+                <div class="price">
+                  <span>¥ 189</span>
+                  <a href="/goods-list.html?cid=17761" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0070174500-000000000762662284_2_400x400.jpg">
+                </div>
+                <div class="name">天然琥珀蜜蜡水滴形女款吊坠多款可选附证书</div>
+                <div class="price">
+                  <span>¥ 298</span>
+                  <a href="/goods-list.html?cid=18663" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070084200-000000000161757588_2_400x400.jpg">
+                </div>
+                <div class="name">贝迪牛+2017秋季新款儿童鸭舌帽子宝宝棒球帽婴儿遮阳帽宝宝帽子</div>
+                <div class="price">
+                  <span>¥ 23</span>
+                  <a href="/goods-list.html?cid=16473" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0070063122-000000010051578209_2_400x400.jpg">
+                </div>
+                <div class="name">【满599减60】【新】 钻石快线 时尚黄金吊坠 狗生肖 宝宝 时尚女士亲子吊坠 小金狗吊坠 黄金吊坠 计价产品 1.39克【含工费40】</div>
+                <div class="price">
+                  <span>¥ 488</span>
+                  <a href="/goods-list.html?cid=19454" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            </div>
+          </div>
+          <div class="content-padded list-title">
+            <img src="http://image4.suning.cn/uimg/cms/img/149559633905095702.png">
+          </div>
+          <div class="content-padded list-item">
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0070161191-000000000616872629_1_400x400.jpg">
+                </div>
+                <div class="name">莱特维健美国进口深海鱼油欧米伽Ω3软胶囊 降血脂调三高降血压血糖 软化血管 搭配卵磷脂 中老年保健品200粒盒装</div>
+                <div class="price">
+                  <span>¥ 136</span>
+                  <a href="/goods-list.html?cid=17851" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070174500-000000000763214883_2_400x400.jpg">
+                </div>
+                <div class="name">二代蜜蜡吊坠项链琥珀吊坠挂件女款毛衣链</div>
+                <div class="price">
+                  <span>¥ 58</span>
+                  <a href="/goods-list.html?cid=18634" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image2.suning.cn/uimg/b2c/newcatentries/0070156358-000000000610596116_1_400x400.jpg">
+                </div>
+                <div class="name">(Tooth Pro)明星爱用快速牙齿焕白液(30ml)牙医推荐 快速焕白牙齿 日本进口</div>
+                <div class="price">
+                  <span>¥ 109</span>
+                  <a href="/goods-list.html?cid=15096" class="button external">找相似</a>
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="pic">
+                  <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0070129996-000000000151445022_2_400x400.jpg">
+                </div>
+                <div class="name">立健 儿童篮球架子可升降家用室内户外投篮玩具 可升降篮球架+8个球</div>
+                <div class="price">
+                  <span>¥ 169</span>
+                  <a href="/goods-list.html?cid=15150" class="button external">找相似</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <script type="text/template" id="swiperTpl">
+    <div class="swiper-wrapper">
+      {{each list}}
+        <div class="swiper-slide">
+          <img src="{{$value.image_url}}">
+        </div>
+      {{/each}}
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </script>
   <script type="text/javascript" src="assets/axios/axios.min.js"></script>
   <script type="text/javascript" src="assets/zepto/zepto.min.js"></script>
   <script type="text/javascript" src="assets/sui/js/sm.min.js"></script>
   <script type="text/javascript" src="assets/swiper/js/swiper.min.js"></script>
+  <script type="text/javascript" src="assets/artTemplate/template-web.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </body>
+
 </html>
