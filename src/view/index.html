@@ -27,93 +27,7 @@
       </div>
       <div class="content" id="content">
         <div class="swiper-container" id="swiperInfo"></div>
-        <div class="content-padded menu" id="menuInfo">
-          <!-- 菜单模板 -->
-          <div class="row">
-            <div class="col-20">
-              <a href="/category/category.html">
-                <div>
-                  <img src="https://image4.suning.cn/uimg/cms/img/151850586119571218.png">
-                </div>
-                <div>分类</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=母婴">
-                <div>
-                  <img src="https://image2.suning.cn/uimg/cms/img/151848438291975781.png?from=mobile">
-                </div>
-                <div>红孩子母婴</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=家电">
-                <div>
-                  <img src="http://image1.suning.cn/uimg/cms/img/151848528905743417.png?from=mobile">
-                </div>
-                <div>生活家电</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=服装">
-                <div>
-                  <img src="https://image5.suning.cn/uimg/cms/img/151848454201144206.png?from=mobile">
-                </div>
-                <div>时尚服饰</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=手机">
-                <div>
-                  <img src="https://image5.suning.cn/uimg/cms/img/151848471513191634.png?from=mobile">
-                </div>
-                <div>爆款手机</div>
-              </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-20">
-              <a href="/me/me.html">
-                <div>
-                  <img src="https://image4.suning.cn/uimg/cms/img/151848501127168581.png?from=mobile">
-                </div>
-                <div>会员</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=母婴">
-                <div>
-                  <img src="https://image2.suning.cn/uimg/cms/img/151848438291975781.png?from=mobile">
-                </div>
-                <div>红孩子母婴</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=家电">
-                <div>
-                  <img src="http://image1.suning.cn/uimg/cms/img/151848528905743417.png?from=mobile">
-                </div>
-                <div>生活家电</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=服装">
-                <div>
-                  <img src="https://image5.suning.cn/uimg/cms/img/151848454201144206.png?from=mobile">
-                </div>
-                <div>时尚服饰</div>
-              </a>
-            </div>
-            <div class="col-20">
-              <a href="/good_list/good_list.html?query=手机">
-                <div>
-                  <img src="https://image5.suning.cn/uimg/cms/img/151848471513191634.png?from=mobile">
-                </div>
-                <div>爆款手机</div>
-              </a>
-            </div>
-          </div>
-        </div>
+        <div class="content-padded menu" id="menuInfo"></div>
         <div id="listInfo">
           <!-- 内容列表模板 -->
           <div class="content-padded list-title">
@@ -334,6 +248,24 @@
     </div>
     <!-- 如果需要分页器 -->
     <div class="swiper-pagination"></div>
+  </script>
+  <script type="text/template" id="menuTpl">
+    <div class="row">
+      {{each list}}
+        <div class="col-20">
+          <a href="{{$value.href}}">
+            <div>
+              <img src="{{$value.img}}">
+            </div>
+            <div>{{$value.name}}</div>
+          </a>
+        </div>
+        {{if ($index + 1) % 5 == 0}}
+          </div>
+          <div class="row">
+        {{/if}}
+      {{/each}}
+    </div>
   </script>
   <script type="text/javascript" src="assets/axios/axios.min.js"></script>
   <script type="text/javascript" src="assets/zepto/zepto.min.js"></script>
