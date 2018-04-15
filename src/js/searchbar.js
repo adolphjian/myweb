@@ -9,6 +9,46 @@ $(function(){
   // 追加到页面
   layer.appendTo('body');
 
+  // 实现搜索跳转功能
+  window.showDetail = function(id,name){
+    let flag = false;
+    let history = localStorage.getItem('searchHistory');
+    if(history) {
+      console.log(id)
+      // 从第二次开始执行该分支
+      let historyInfo = JSON.parse(history);
+      historyInfo.some(function(item){
+        if(id === item.id){
+          // 如果当前传递过来的id和已经存在的相等，就证明已经存在
+          flag = true;
+          // 找到之后终止遍历
+          return true;
+        }
+      })
+      if(!flag) {
+        // 不存在，添加进去
+        let info = {
+          id: id,
+          name: name
+        }
+        historyInfo.push(info);
+        // 重新存储到localStorage
+        localStorage.setItem('searchHistory',JSON.stringify(historyInfo));
+      }
+    } else {
+      // 第一次存储历史信息
+      let info = {
+        id: id,
+        name: name
+      }
+      let arr = [];
+      arr.push(info);
+      localStorage.setItem('searchHistory',JSON.stringify(arr));
+    }
+    // 实现跳转
+    location.href = '/goods-detail.html?goods_id=' + id;
+  }
+
   // 根据输入的关键字加载列表数据
   function loadKeyWordData(keyword){
     return axios.get('goods/qsearch', {

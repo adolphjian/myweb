@@ -14,7 +14,7 @@
         <ul>
           {{each $data}}
             <li>
-              <a href="/goods-detail.html?goods_id={{$value.goods_id}}" class="item-link item-content">
+              <a href="javascript:;" onclick='showDetail({{$value.goods_id}},"{{$value.goods_name}}")' class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title">
                     {{$value.goods_name}}
