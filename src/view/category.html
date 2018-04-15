@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>主页</title>
+  @@include('./common/meta.html') @@include('./common/style.html')
+  <link rel="stylesheet" type="text/css" href="css/category.css">
+</head>
+
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <!-- 搜索条 -->
+      @@include('./common/searchbar.html')
+      <!-- 菜单栏 -->
+      @@include('./common/menubar.html', { "category": "active" })
+      <div class="content" id="content">
+        <div class="row">
+          <div class="col-25 layout-left" id="leftMenuInfo">
+            <div class="layout-con">
+              <div class="items">热门推荐</div>
+            </div>
+          </div>
+          <div class="col-75 layout-right" id="rightContentInfo">
+            <div class="shangpin">
+              <div class="goods-cat">
+                <h2 class="theme">
+                <p>电视</p>
+                <s class="m-line"></s>
+              </h2>
+                <div class="comP">
+                  <div class="good" data-cid="19">
+                    <div style=""><img src="http://47.96.21.88:8888/full/5fae60f2cc05c53eaf43075db7eb82bfc9bba9b4.jpg"></div>
+                    <p>家庭影院</p>
+                  </div>
+                  <div class="good" data-cid="20">
+                    <div style=""><img src="http://47.96.21.88:8888/full/5515d491f88587084e59aac50010458bb916ee17.jpg"></div>
+                    <p>音响</p>
+                  </div>
+                  <div class="good" data-cid="21">
+                    <div style=""><img src="http://47.96.21.88:8888/full/e65bab9fcb64c336a3f5fba3b2174fef41f12330.jpg"></div>
+                    <p>盒子</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    @@include('./common/script.html')
+    <script type="text/javascript" src="js/category.js"></script>
+</body>
+
+</html>
