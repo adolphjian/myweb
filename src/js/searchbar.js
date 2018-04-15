@@ -14,9 +14,10 @@ $(function(){
     let flag = false;
     let history = localStorage.getItem('searchHistory');
     if(history) {
-      console.log(id)
       // 从第二次开始执行该分支
+      // 将字符串信息转换为json对象
       let historyInfo = JSON.parse(history);
+      // 判断数组中是否包含指定的id对象
       historyInfo.some(function(item){
         if(id === item.id){
           // 如果当前传递过来的id和已经存在的相等，就证明已经存在
@@ -26,10 +27,10 @@ $(function(){
         }
       })
       if(!flag) {
-        // 不存在，添加进去
+        // 如果不存在，就添加进去
         let info = {
-          id: id,
-          name: name
+          goods_id: id,
+          goods_name: name
         }
         historyInfo.push(info);
         // 重新存储到localStorage
@@ -38,11 +39,12 @@ $(function(){
     } else {
       // 第一次存储历史信息
       let info = {
-        id: id,
-        name: name
+        goods_id: id,
+        goods_name: name
       }
       let arr = [];
       arr.push(info);
+      // 第一次存储到localStorage
       localStorage.setItem('searchHistory',JSON.stringify(arr));
     }
     // 实现跳转
@@ -65,10 +67,18 @@ $(function(){
       resolve();
     });
   }
-
   // 处理所有的事件
   $('#search').on('focus',function(){
     layer.show();
+    // 获取搜索历史数据
+    let historyInfo = localStorage.getItem('searchHistory');
+    if(historyInfo){
+      // 表示有历史信息
+      historyInfo = JSON.parse(historyInfo);
+      // 渲染历史信息
+      let html = template('searchTpl',historyInfo);
+      $('#searchInfo').html(html);
+    }
   })
   $('#search').on('blur',function(){
     // 保证点击a标签之后再触发隐藏操作
