@@ -26,7 +26,6 @@ $(function(){
           return true;
         }
       })
-        console.log(false)
       if(!flag) {
         // 如果不存在，就添加进去
         let info = {
@@ -49,7 +48,7 @@ $(function(){
       localStorage.setItem('searchHistory',JSON.stringify(arr));
     }
     // 实现跳转
-    // location.href = '/goods-detail.html?goods_id=' + id;
+    location.href = '/goods-detail.html?goods_id=' + id;
   }
 
   // 根据输入的关键字加载列表数据
