@@ -31,7 +31,7 @@
   </script>
   <script type="text/template" id="rightCateTpl">
     <div class="shangpin">
-      {{each $data}}
+      {{each $data.data}}
         <div class="goods-cat">
           <h2 class="theme">
             <p>{{$value.cat_name}}</p>
@@ -40,7 +40,7 @@
           <div class="comP">
             {{each $value.children item}}
             <div class="good" data-cid="{{item.cat_id}}">
-              <div style=""><img src="{{item.cat_icon}}"></div>
+              <div style=""><img src="{{$data.baseUrl + '' +item.cat_icon}}"></div>
               <p>{{item.cat_name}}</p>
             </div>
             {{/each}}
