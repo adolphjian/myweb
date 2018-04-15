@@ -19,13 +19,14 @@ $(function(){
       let historyInfo = JSON.parse(history);
       // 判断数组中是否包含指定的id对象
       historyInfo.some(function(item){
-        if(id === item.id){
+        if(id == item.goods_id){
           // 如果当前传递过来的id和已经存在的相等，就证明已经存在
           flag = true;
           // 找到之后终止遍历
           return true;
         }
       })
+        console.log(false)
       if(!flag) {
         // 如果不存在，就添加进去
         let info = {
@@ -48,7 +49,7 @@ $(function(){
       localStorage.setItem('searchHistory',JSON.stringify(arr));
     }
     // 实现跳转
-    location.href = '/goods-detail.html?goods_id=' + id;
+    // location.href = '/goods-detail.html?goods_id=' + id;
   }
 
   // 根据输入的关键字加载列表数据
