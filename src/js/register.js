@@ -15,10 +15,10 @@ $(function(){
     delayTime--;
     if(delayTime > 0) {
       // 禁用按钮的状态并动态更新按钮的文字信息
-      $('#codeButton').addClass('button-fill').addClass('disabled').text(delayTime+'秒后重试');
+      $('#codeButton').addClass('button-fill').addClass('disabled').attr('disabled','disabled').text(delayTime+'秒后重试').removeAttr("href");
       setTimeout(handleCodeState,1000);
     }else{
-      $('#codeButton').removeClass('button-fill').removeClass('disabled').text('重新发送验证码');
+      $('#codeButton').removeClass('button-fill').removeClass('disabled').removeAttr('disabled').text('重新发送验证码');
     }
   }
 
@@ -30,6 +30,10 @@ $(function(){
   $(document).on("pageInit", function(e, pageId, $page) {
     // 绑定验证码单击事件
     $('#codeButton').on('click',function(){
+      // if(delayTime > 0) {
+      //   return;
+      // }
+      // delayTime = 60;
       let mobile = $('#mobile').val();
       let reg = /^\d{11}$/;
       if(!reg.test(mobile)){
