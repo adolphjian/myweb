@@ -3,6 +3,39 @@ $(function(){
   let delayTime = 60;
 
   // 表单验证
+  function checkForm(){
+    return new Promise(function(resolve,reject){
+      let mobile = $('#mobile').val();
+      if(!/^\d{11}$/.test(mobile)){
+        reject('手机号格式错误');
+      }
+      let code = $('#code').val();
+      if(!code || code.length != 4){
+        reject('验证码错误');
+      }
+      let email = $('#email').val();
+      if(!/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/i.test(email)){
+        reject('邮箱格式错误');
+      }
+      let pwd = $('#pwd').val();
+      if(!/^\d{6}$/.test(pwd)){
+        reject('密码必须是6位数字');
+      }
+      let cpwd = $('#confirmPwd').val();
+      if(pwd != cpwd){
+        reject('两次密码不相同');
+      }
+      let gender = $('#gender').val();
+      // 验证通过
+      resolve({
+        mobile:mobile,
+        code:code,
+        email:email,
+        pwd:pwd,
+        gender:gender
+      });
+    })
+  }
 
   // 验证码处理
   function handleCode(mobile){
@@ -30,10 +63,6 @@ $(function(){
   $(document).on("pageInit", function(e, pageId, $page) {
     // 绑定验证码单击事件
     $('#codeButton').on('click',function(){
-      // if(delayTime > 0) {
-      //   return;
-      // }
-      // delayTime = 60;
       let mobile = $('#mobile').val();
       let reg = /^\d{11}$/;
       if(!reg.test(mobile)){
@@ -51,22 +80,16 @@ $(function(){
 
     // 绑定单击注册按钮事件
     $('#registerBtn').on('click',function(){
-      let mobile = $('#mobile').val();
-      let code = $('#code').val();
-      let email = $('#email').val();
-      let pwd = $('#pwd').val();
-      let gender = $('#gender').val();
-      submitForm({
-        mobile:mobile,
-        code:code,
-        email:email,
-        pwd:pwd,
-        gender:gender
-      }).then(function(data){
-        if(data.meta.status == 200){
-          $.toast(data.meta.msg);
-        }
-      })
+      checkForm()
+        .then(submitForm)
+        .then(function(data){
+          if(data.meta.status == 200){
+            $.toast(data.meta.msg);
+          }
+        })
+        .catch(function(errInfo){
+          $.toast(errInfo);
+        })
     })
   })
   $.init();
