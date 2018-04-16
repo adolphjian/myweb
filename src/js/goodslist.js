@@ -2,13 +2,19 @@ $(function(){
   // 分页相关参数
   let pagenum = 1;// 表示第几条数据
   let pagesize = 10;// 表示每次加载多少条数据
+  // 加载次数标记为（flag标志位保证加载完一次才能进行下一次加载）
+  let flag = false;
+  
+  // 如何获取url地址的参数
+  let cid = APP.qs('cid');
 
   // 加载列表数据
   function loadListData(){
     return axios.get('goods/search', {
       params: {
         pagenum: pagenum,
-        pagesize: pagesize
+        pagesize: pagesize,
+        cid: cid
       }
     });
   }
@@ -34,8 +40,6 @@ $(function(){
       })
   }
 
-  // 加载次数标记为（flag标志位保证加载完一次才能进行下一次加载）
-  let flag = false;
   // 下拉刷新
   $(document).on('refresh', '.pull-to-refresh-content', function(e) {
     // 下拉后应该重新调用接口获取数据渲染模板
@@ -79,6 +83,7 @@ $(function(){
   });
 
   $(document).on("pageInit", function(e, pageId, $page) {
+    // 页面第一次加载，初始化列表
     refreshPage();
   })
   $.init();
