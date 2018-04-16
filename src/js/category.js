@@ -62,7 +62,7 @@ $(function(){
         $.toast('服务器错误')
       })
       .finally(function(){
-        // 无论成功还是失败都会调用该方法
+        // 无论成功还是失败都会调用该方法（finally有浏览器版本兼容问题--可以借助第三方库bluebird解决）
         $.hidePreloader('已经完成');
       })
   });
