@@ -13,7 +13,6 @@ $(function(){
   }
   // 渲染模板
   function renderCartInfo(params){
-    console.log(params)
     return new Promise(function(resolve,reject){
       // 初始化购物车数据
       currentData = params.data;
@@ -114,6 +113,41 @@ $(function(){
   // 删除购物车商品
   function deleteCart(){
     return new Promise(function(resolve,reject){
+      // 处理删除操作
+      $('#delBtn').on('click',function(){
+        // 获取选中的商品id
+        let ids = [];
+        $('#cartInfo input[type=checkbox]:checked').each(function(index,item){
+          let pId = $(item).attr('data-pId');
+          ids.push(pId)
+        })
+        // 根据选中的id删除当前购物车数据中对应的数据
+        ids.forEach(function(item){
+          delete currentData[item];
+        })
+        // 删除完页面数据之后要同步到后台
+        syncCart({infos: JSON.stringify(currentData)})
+          .then(function(data){
+            // 更新当前最新购物车数据
+            let info = JSON.parse(data.data.cart_info);
+            // 更新本地数据
+            currentData = info;
+            let goods = [];
+            for(let key in info){
+              goods.push(info[key]);
+            }
+            return goods;
+          })
+          .then(calcMoney)
+          .then(function(){
+            // 重新渲染显示模板
+            renderCommon('cartTpl');
+          })
+          .catch(function(e){
+            $.toast(e)
+          })
+      })
+      // 处理编辑操作
       $('#editBtn').on('click',function(){
         this.flag = this.flag?!this.flag:true;
         let goods = [];
@@ -141,20 +175,20 @@ $(function(){
   }
   
   // 渲染模板通用方法
-  function renderCommon(cartTpl){
-    loadCartData(cartTpl)
+  function renderCommon(tplId){
+    return loadCartData(tplId)
       .then(renderCartInfo)
       .then(calcMoney)
       .then(controlProductNum)
       .then(updateCart)
-      .then(deleteCart)
       .catch(function(e){
         $.toast(e)
       })
   }
 
   $(document).on("pageInit", function(e, pageId, $page) {
-    renderCommon('cartTpl');
+    renderCommon('cartTpl')
+      .then(deleteCart);
   })
   $.init();
 });
