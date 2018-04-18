@@ -52,11 +52,15 @@ axios.interceptors.request.use(function (config) {
     config.headers.Authorization = token;
     // console.log(config)
     // url地址添加时间戳，防止缓存
-    config.params.t = new Date().getTime()
-    // 不可以使用下面的写法，否则会覆盖默认的get参数
-    // config.params = {
-    //   t: new Date().getTime()
-    // }
+    if(config.params){
+      // 已经存在get参数
+      config.params.t = new Date().getTime();
+    }else{
+      // 不存在get参数
+      config.params = {
+        t: new Date().getTime()
+      }
+    }
     return config;
   }, function (error) {
     return Promise.reject(error);
